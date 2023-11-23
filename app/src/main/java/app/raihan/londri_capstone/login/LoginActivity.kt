@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import app.raihan.londri_capstone.R
 import app.raihan.londri_capstone.databinding.ActivityLoginBinding
+import app.raihan.londri_capstone.main.MainActivity
 import app.raihan.londri_capstone.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -19,6 +20,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.signUp.setOnClickListener{
             val moveIntent = Intent(this@LoginActivity, SignupActivity::class.java)
+            startActivity(moveIntent)
+        }
+
+        binding.loginButton.setOnClickListener{
+            val moveIntent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(moveIntent)
         }
     }
