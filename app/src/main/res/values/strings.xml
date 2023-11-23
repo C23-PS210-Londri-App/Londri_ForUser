@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Londri_Capstone</string>
+    <string name="message_login_page">Masukkan Email dan Password anda!</string>
+    <string name="title_login_page">Selamat Datang!</string>
+    <string name="login">Masuk</string>
+    <string name="google">Google</string>
+    <string name="choice">Atau masuk dengan</string>
+    <string name="asking_user">Belum punya akun?</string>
+    <string name="daftar">Daftar sekarang!</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="remember">Ingat Saya</string>
+    <string name="forgot">Lupa Kata Sandi?</string>
+    <string name="asking_user2">Sudah punya akun?</string>
+    <string name="masuk">Masuk sekarang!</string>
+    <string name="complete_ur_data">Masukkan data anda dibawah ini!</string>
+    <string name="nama">Nama</string>
+    <string name="phone">Nomor Telepon</string>
+    <string name="confirm">Konfirmasi Kata Sandi</string>
+    <string name="information">Cari tahu lebih banyak dan dapatkan</string>
+    <string name="view_all">Selengkapnya</string>
+    <string name="tv1">Telusuri Londri</string>
+    <string name="promo">promo</string>
+    <string name="information_2">Binatu terbaik kata Londri</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv2">Rekomendasi Londri</string>
+</resources>
