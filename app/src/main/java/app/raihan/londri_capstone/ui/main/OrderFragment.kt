@@ -1,23 +1,22 @@
-package app.raihan.londri_capstone.main
+package app.raihan.londri_capstone.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import app.raihan.londri_capstone.R
-import app.raihan.londri_capstone.databinding.FragmentHomeBinding
+import app.raihan.londri_capstone.databinding.FragmentOrderBinding
 
-class HomeFragment : Fragment() {
+class OrderFragment : Fragment() {
 
-    private lateinit var bindingSignIn: FragmentHomeBinding
+    private lateinit var bindingSignIn: FragmentOrderBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        bindingSignIn = FragmentHomeBinding.inflate(inflater, container, false)
+        bindingSignIn = FragmentOrderBinding.inflate(inflater, container, false)
 
         return bindingSignIn.root
     }

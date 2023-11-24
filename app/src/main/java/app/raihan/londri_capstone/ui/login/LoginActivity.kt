@@ -1,13 +1,11 @@
-package app.raihan.londri_capstone.login
+package app.raihan.londri_capstone.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import app.raihan.londri_capstone.R
 import app.raihan.londri_capstone.databinding.ActivityLoginBinding
-import app.raihan.londri_capstone.main.MainActivity
-import app.raihan.londri_capstone.signup.SignupActivity
+import app.raihan.londri_capstone.ui.main.MainActivity
+import app.raihan.londri_capstone.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
 

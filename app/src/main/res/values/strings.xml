@@ -26,4 +26,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv2">Rekomendasi Londri</string>
     <string name="signup">Daftar</string>
+    <string name="search">Cari</string>
+    <string name="home">Beranda</string>
+    <string name="order">Pesanan</string>
 </resources>

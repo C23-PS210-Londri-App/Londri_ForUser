@@ -1,4 +1,4 @@
-package app.raihan.londri_capstone.main
+package app.raihan.londri_capstone.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

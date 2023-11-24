@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.SignupActivity">
+    tools:context=".ui.signup.SignupActivity">
 
     <LinearLayout
         android:id="@+id/daftar_page"
@@ -212,7 +212,7 @@
             android:onClick="openNewActivity"
             android:paddingLeft="4dp"
             android:text="@string/masuk"
-            android:textColor="@color/Blue_400"
+            android:textColor="@color/blue_400"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 

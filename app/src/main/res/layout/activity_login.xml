@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <View
         android:id="@+id/spacer"
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:textColor="@color/Blue_400"
+                android:textColor="@color/blue_400"
                 android:textSize="14sp"
                 android:text="@string/forgot" />
 
@@ -170,7 +170,7 @@
             android:onClick="openNewActivity"
             android:paddingLeft="4dp"
             android:text="@string/daftar"
-            android:textColor="@color/Blue_400"
+            android:textColor="@color/blue_400"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 

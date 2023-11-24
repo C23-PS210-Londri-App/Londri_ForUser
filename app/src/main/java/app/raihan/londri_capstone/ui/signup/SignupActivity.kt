@@ -1,12 +1,10 @@
-package app.raihan.londri_capstone.signup
+package app.raihan.londri_capstone.ui.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import app.raihan.londri_capstone.R
 import app.raihan.londri_capstone.databinding.ActivitySignupBinding
-import app.raihan.londri_capstone.databinding.FragmentOrderBinding
-import app.raihan.londri_capstone.login.LoginActivity
+import app.raihan.londri_capstone.ui.login.LoginActivity
 
 class SignupActivity : AppCompatActivity() {
 

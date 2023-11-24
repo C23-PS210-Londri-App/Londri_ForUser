@@ -1,11 +1,8 @@
-package app.raihan.londri_capstone.main
+package app.raihan.londri_capstone.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainer
 import app.raihan.londri_capstone.R
 import app.raihan.londri_capstone.databinding.ActivityMainBinding
 
