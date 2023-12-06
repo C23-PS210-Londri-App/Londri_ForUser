@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import app.raihan.londri_capstone.databinding.FragmentOrderBinding
 
 class OrderFragment : Fragment() {
 
     private lateinit var bindingSignIn: FragmentOrderBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

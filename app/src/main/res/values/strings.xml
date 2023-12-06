@@ -29,4 +29,12 @@
     <string name="search">Cari</string>
     <string name="home">Beranda</string>
     <string name="order">Pesanan</string>
+
+    <string-array name="JasaYangDipakai">
+        <item>Dryclean</item>
+        <item>Cuci Saja</item>
+        <item>Komplit</item>
+        <item>Setrika Saja</item>
+    </string-array>
+
 </resources>

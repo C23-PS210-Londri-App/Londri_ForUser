@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.HomeFragment">
 
     <ImageView
@@ -11,14 +12,56 @@
         android:layout_height="189dp"
         android:src="@drawable/home_design" />
 
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/profile_londri" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/profile_img"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="Muhammad Raihan A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txt_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_toRightOf="@id/profile_img"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:text="De Sanctuary Blok E/37"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
     <com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/img_1"
         android:layout_marginStart="32dp"
         android:layout_marginTop="-33dp"
         android:layout_marginEnd="32dp"
+        android:overScrollMode="never"
         android:backgroundTint="@color/light_Purple"
         android:hint="@string/search" />
 
@@ -27,12 +70,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/search_bar"
-        android:text="@string/tv1"
+        android:text="@string/tv2"
         android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/tv_2"
@@ -40,147 +83,62 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_below="@+id/tv_1"
-        android:text="@string/information"
+        android:text="@string/information_2"
         android:textSize="12sp"
         android:textColor="@color/black_200" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/view_all_1"
-        android:layout_width="143dp"
-        android:layout_height="54dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
         android:layout_below="@+id/search_bar"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="30dp"
         android:layout_toRightOf="@+id/tv_1"
         android:text="@string/view_all"
-        android:textSize="15sp"/>
+        android:textSize="12sp"
+        app:backgroundTint="@color/purple_400"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_2"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="true"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_recommend_laundry" />
 
     <TextView
         android:id="@+id/tv_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_2"
-        android:text="@string/promo"
-        android:textSize="12sp"
-        android:textColor="@color/black_200" />
+        android:layout_marginTop="24dp"
+        android:text="Semua Londri"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/recyclerView" />
 
-    <RelativeLayout
-        android:id="@+id/rl_choices"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_below="@id/tv_3"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/tv_3">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_1"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_1"
-            android:layout_marginRight="23dp"
-            android:text="Daily Wear"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_2"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_1"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_2"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="24dp"
-            android:layout_toRightOf="@id/choice_1"
-            android:text="Sepatu"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_3"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_2"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_3"
-            android:layout_marginLeft="26dp"
-            android:layout_marginRight="23dp"
-            android:layout_toRightOf="@id/choice_2"
-            android:text="Karpet"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_4"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_3"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_3"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/choice_3"
-            android:text="Helmet"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/rl_choices"
-        android:text="@string/tv2"
-        android:textStyle="bold"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/tv_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_4"
-        android:text="@string/information_2"
-        android:textSize="12sp"
-        android:textColor="@color/black_200" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/view_all_2"
-        android:layout_width="143dp"
-        android:layout_height="54dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/rl_choices"
-        android:layout_toRightOf="@+id/tv_4"
-        android:text="@string/view_all"
-        android:textSize="15sp"/>
+        android:layout_alignParentStart="true"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_all_laundry" />
 
 </RelativeLayout>

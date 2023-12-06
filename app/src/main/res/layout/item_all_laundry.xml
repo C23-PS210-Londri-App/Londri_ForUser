@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginVertical="4dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="8dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_laundry"
+            android:layout_width="82dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/bg_recommend"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/nama_laundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="14dp"
+            android:text="AndriLaund"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/img_laundry"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/jenis_laundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:text="Daily Wash"
+            android:textSize="14sp"
+            android:textColor="@color/black_200"
+            app:layout_constraintTop_toBottomOf="@id/nama_laundry"
+            app:layout_constraintLeft_toRightOf="@id/img_laundry" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="245dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/black_100"
+            app:layout_constraintLeft_toRightOf="@id/img_laundry"
+            app:layout_constraintTop_toBottomOf="@id/jenis_laundry" />
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="12dp"
+            android:text="4.6"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/line_view"
+            app:layout_constraintLeft_toRightOf="@id/img_laundry" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_rating_star"
+            app:layout_constraintLeft_toRightOf="@id/rating"
+            app:layout_constraintTop_toBottomOf="@id/line_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

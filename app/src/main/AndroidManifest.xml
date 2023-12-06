@@ -12,6 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Londri_Capstone"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC5CVbWdsAESVVh209qCHPnKdaBKQpbUHM" />
+
+        <activity
+            android:name=".ui.profilepage.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.formorder.FormOrder"
+            android:exported="false" />
+        <activity
+            android:name=".ui.splashscreen.OrderSuceed"
+            android:exported="false" />
         <activity
             android:name=".ui.signup.SignupActivity"
             android:exported="false" />
