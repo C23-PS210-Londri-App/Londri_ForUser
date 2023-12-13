@@ -6,17 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.splashscreen.SplashScreen">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_londri"
-            android:layout_gravity="center"/>
-    </RelativeLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_londri"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/app_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

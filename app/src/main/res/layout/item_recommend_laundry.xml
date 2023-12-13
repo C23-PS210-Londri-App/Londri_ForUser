@@ -26,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" >
 
             <LinearLayout
+                android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_recommend" />
@@ -36,7 +37,7 @@
             android:id="@+id/tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_img"
@@ -47,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="-5dp"
             android:layout_marginStart="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_1"

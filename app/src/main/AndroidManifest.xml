@@ -12,14 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Londri_Capstone"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC5CVbWdsAESVVh209qCHPnKdaBKQpbUHM" />
 
-        <activity
-            android:name=".ui.profilepage.ProfileActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.formorder.FormOrder"
             android:exported="false" />
@@ -33,14 +34,10 @@
             android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.splashscreen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

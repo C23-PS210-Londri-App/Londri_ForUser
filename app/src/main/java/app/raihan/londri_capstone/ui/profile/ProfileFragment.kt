@@ -1,22 +1,22 @@
-package app.raihan.londri_capstone.ui.main
+package app.raihan.londri_capstone.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import app.raihan.londri_capstone.databinding.FragmentSearchBinding
+import app.raihan.londri_capstone.databinding.FragmentProfileBinding
 
-class SearchFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var bindingSignIn: FragmentSearchBinding
+    private lateinit var bindingSignIn: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        bindingSignIn = FragmentSearchBinding.inflate(inflater, container, false)
+        bindingSignIn = FragmentProfileBinding.inflate(inflater, container, false)
 
         return bindingSignIn.root
     }

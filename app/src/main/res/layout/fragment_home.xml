@@ -1,144 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.HomeFragment">
 
     <ImageView
         android:id="@+id/img_1"
-        android:layout_width="wrap_content"
-        android:layout_height="189dp"
-        android:src="@drawable/home_design" />
-
-    <RelativeLayout
-        android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="40dp"
-        android:clickable="true">
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/banner_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_img"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:src="@drawable/profile_londri" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/txt_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/profile_img"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
-            android:text="Muhammad Raihan A"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/nama"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/profile_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toTopOf="@+id/profile_img" />
 
-        <TextView
-            android:id="@+id/txt_alamat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_name"
-            android:layout_toRightOf="@id/profile_img"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="De Sanctuary Blok E/37"
-            android:textSize="16sp"
-            android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/txt_alamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_name"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_toRightOf="@id/profile_img"
+        android:text="@string/alamat"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toTopOf="@id/profile_img" />
 
-    </RelativeLayout>
 
     <com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_below="@+id/img_1"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="-33dp"
-        android:layout_marginEnd="32dp"
-        android:overScrollMode="never"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="-30dp"
         android:backgroundTint="@color/light_Purple"
-        android:hint="@string/search" />
+        android:hint="@string/search"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_1" />
 
     <TextView
-        android:id="@+id/tv_1"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitleRekom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
         android:layout_below="@+id/search_bar"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
         android:text="@string/tv2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
     <TextView
-        android:id="@+id/tv_2"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvDescRekom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_1"
+        android:layout_marginHorizontal="30dp"
         android:text="@string/information_2"
+        android:textColor="@color/black_200"
         android:textSize="12sp"
-        android:textColor="@color/black_200" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleRekom" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/view_all_1"
-        android:layout_width="126dp"
-        android:layout_height="44dp"
-        android:layout_below="@+id/search_bar"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/tv_1"
+        android:id="@+id/btnSelengkapnya"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
         android:text="@string/view_all"
-        android:textSize="12sp"
+        android:textSize="11sp"
         app:backgroundTint="@color/purple_400"
+        app:layout_constraintBottom_toBottomOf="@id/tvDescRekom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTitleRekom"
         tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recRekomendasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_2"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="30dp"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         android:fillViewport="true"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescRekom"
         tools:itemCount="5"
         tools:listitem="@layout/item_recommend_laundry" />
 
     <TextView
-        android:id="@+id/tv_3"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvAllLondri"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:text="Semua Londri"
-        android:textSize="20sp"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/recyclerView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recRekomendasi" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_2"
+        android:id="@+id/recAllLondri"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_3"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
         android:fillViewport="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAllLondri"
         tools:itemCount="10"
         tools:listitem="@layout/item_all_laundry" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
