@@ -1,186 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.HomeFragment">
+    tools:context=".ui.main.HomeFragment">
 
     <ImageView
         android:id="@+id/img_1"
-        android:layout_width="wrap_content"
-        android:layout_height="189dp"
-        android:src="@drawable/home_design" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/banner_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/nama"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/profile_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toTopOf="@+id/profile_img" />
+
+    <TextView
+        android:id="@+id/txt_alamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_name"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_toRightOf="@id/profile_img"
+        android:text="@string/alamat"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_img"
+        app:layout_constraintTop_toTopOf="@id/profile_img" />
+
 
     <com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/img_1"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="-33dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="-30dp"
         android:backgroundTint="@color/light_Purple"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:hint="@string/search"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_1" />
 
     <TextView
-        android:id="@+id/tv_1"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitleRekom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/search_bar"
-        android:text="@string/tv1"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/tv2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textSize="20sp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
     <TextView
-        android:id="@+id/tv_2"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvDescRekom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_1"
-        android:text="@string/information"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/information_2"
+        android:textColor="@color/black_200"
         android:textSize="12sp"
-        android:textColor="@color/black_200" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleRekom" />
 
-    <Button
-        android:id="@+id/view_all_1"
-        android:layout_width="143dp"
-        android:layout_height="54dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/search_bar"
-        android:layout_toRightOf="@+id/tv_1"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSelengkapnya"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
         android:text="@string/view_all"
-        android:textSize="15sp"/>
+        android:textSize="11sp"
+        app:backgroundTint="@color/purple_400"
+        app:layout_constraintBottom_toBottomOf="@id/tvDescRekom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTitleRekom"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/tv_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_2"
-        android:text="@string/promo"
-        android:textSize="12sp"
-        android:textColor="@color/black_200" />
-
-    <RelativeLayout
-        android:id="@+id/rl_choices"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recRekomendasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/tv_3">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_1"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_1"
-            android:layout_marginRight="23dp"
-            android:text="Daily Wear"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_2"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_1"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_2"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="24dp"
-            android:layout_toRightOf="@id/choice_1"
-            android:text="Sepatu"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_3"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_2"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_3"
-            android:layout_marginLeft="26dp"
-            android:layout_marginRight="23dp"
-            android:layout_toRightOf="@id/choice_2"
-            android:text="Karpet"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/img_btn_4"
-            android:layout_width="69dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="23dp"
-            android:layout_toRightOf="@id/img_btn_3"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/choice_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_btn_3"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/choice_3"
-            android:text="Helmet"
-            android:textSize="14sp"
-            android:textColor="@color/black" />
-
-    </RelativeLayout>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:fillViewport="true"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescRekom"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_recommend_laundry" />
 
     <TextView
-        android:id="@+id/tv_4"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvAllLondri"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/rl_choices"
-        android:text="@string/tv2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Semua Londri"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textSize="20sp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recRekomendasi" />
 
-    <TextView
-        android:id="@+id/tv_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@+id/tv_4"
-        android:text="@string/information_2"
-        android:textSize="12sp"
-        android:textColor="@color/black_200" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recAllLondri"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAllLondri"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_all_laundry" />
 
-    <Button
-        android:id="@+id/view_all_2"
-        android:layout_width="143dp"
-        android:layout_height="54dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/rl_choices"
-        android:layout_toRightOf="@+id/tv_4"
-        android:text="@string/view_all"
-        android:textSize="15sp"/>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
