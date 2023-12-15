@@ -1,38 +1,42 @@
-package app.raihan.londri_capstone.ui.order
+package app.raihan.londri_capstone.ui.ui.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
-import app.raihan.londri_capstone.databinding.FragmentOrderBinding
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import app.raihan.londri_capstone.databinding.FragmentDashboardBinding
 
-@Suppress("UNREACHABLE_CODE")
-class OrderFragment : Fragment() {
-    private lateinit var binding: FragmentOrderBinding
-    private lateinit var viewPager: ViewPager2
-    private lateinit var tabs: TabLayout
+class DashboardFragment : Fragment() {
+
+    private var _binding: FragmentDashboardBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentOrderBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View {
+        val dashboardViewModel =
+            ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-        viewPager = binding.viewPager
-        tabs = binding.tabs
+        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
-        val pagerAdapter = OrderPagerAdapter(this)
-        viewPager.adapter = pagerAdapter
+        val textView: TextView = binding.textDashboard
+        dashboardViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
+        return root
+    }
 
-        TabLayoutMediator(tabs, viewPager) { tab, position ->
-            tab.text = "Tab ${position + 1}"
-        }.attach()
-
-        return view
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
