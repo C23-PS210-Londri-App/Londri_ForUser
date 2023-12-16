@@ -8,10 +8,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.addTextChangedListener
+import app.raihan.londri_capstone.data.Result
 import app.raihan.londri_capstone.databinding.ActivitySignupBinding
 import app.raihan.londri_capstone.models.ViewModelFactory
-import app.raihan.londri_capstone.ui.HomeActivity
 import app.raihan.londri_capstone.ui.login.LoginActivity
 
 class SignupActivity : AppCompatActivity() {
@@ -20,61 +19,89 @@ class SignupActivity : AppCompatActivity() {
     private val viewModel by viewModels<SignUpViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        registerAction()
-
-        binding.tvLogin.setOnClickListener{
-            val moveIntent = Intent(this@SignupActivity, LoginActivity::class.java)
-            startActivity(moveIntent)
-        }
-    }
-
-    private fun registerAction() {
         binding.apply {
-            btnDaftar.isEnabled = false
-
-            edName.addTextChangedListener { validateInput() }
-            edEmail.addTextChangedListener { validateInput() }
-            edPassword.addTextChangedListener { validateInput() }
-            edRepeatPassword.addTextChangedListener { validateInput() }
-
-            btnDaftar.setOnClickListener {
-                showLoading(true)
-                if (edRepeatPassword.text.toString() == edPassword.text.toString()) {
-                    viewModel.postRegister(
-                        edName.toString(),
-                        edEmail.toString(),
-                        edPassword.toString(),
-                    )
-                    val intent = Intent(this@SignupActivity, HomeActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this@SignupActivity, "Password tidak sama", Toast.LENGTH_SHORT)
-                        .show()
-                    showLoading(false)
-                }
+            tvLogin.setOnClickListener{
+                val moveIntent = Intent(this@SignupActivity, LoginActivity::class.java)
+                startActivity(moveIntent)
             }
 
-            viewModel.regResponse.observe(this@SignupActivity) { response ->
-                response?.let {
-                    if (it.error) {
-                        showLoading(false)
-                        Toast.makeText(this@SignupActivity, it.message, Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
-                        setupAction()
-                    }
+            btnDaftar.setOnClickListener{
+                validateInput()
+            }
+        }
+
+        observe()
+    }
+
+    private fun observe(){
+        viewModel.registerResponse.observe(this) { response ->
+            when(response){
+                is Result.Loading -> {
+                    showLoading(true)
+                }
+
+                is Result.Error -> {
+                    showLoading(false)
+                    registerFailedToast("Register gagal, silahkan coba lagi!")
+                }
+
+                is Result.Success -> {
+                    showLoading(true)
+                    showDialogSuccess()
                 }
             }
         }
     }
 
-    private fun setupAction() {
+    private fun EditText.isValidInput(): Boolean {
+        return length() > 0 && error.isNullOrEmpty()
+    }
+
+    private fun validateInput() {
+        binding.apply {
+            val isNameValid = edName.isValidInput()
+            val isEmailValid = edEmail.isValidInput()
+            val isTelephoneValid = edPhone.isValidInput()
+            val isPasswordValid = edPassword.isValidInput()
+            val isConfirmPasswordValid = edRepeatPassword.isValidInput()
+            if (isNameValid && isEmailValid && isTelephoneValid && isPasswordValid && isConfirmPasswordValid) {
+                if (edPassword.text.toString() == edRepeatPassword.text.toString()){
+                    registerAccount(edName.text.toString(), edEmail.text.toString(), edPhone.text.toString(), edPassword.text.toString())
+                }else{
+                    Toast.makeText(
+                        this@SignupActivity,
+                        "Password harus sama! ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } else {
+                Toast.makeText(
+                    this@SignupActivity,
+                    "Mohon lengkapi semua data! ",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun registerAccount(name: String, email: String, telephone: String, password: String) {
+        binding.apply {
+            viewModel.postRegister(
+                name,
+                email,
+                telephone,
+                password
+            )
+        }
+    }
+
+    private fun showDialogSuccess() {
         AlertDialog.Builder(this).apply {
             setTitle("Success")
             setMessage("Akun berhasil dibuat. Login untuk melanjutkan!")
@@ -86,22 +113,15 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput() {
-        binding.apply {
-            val isNameValid = edName.isValidInput()
-            val isEmailValid = edEmail.isValidInput()
-            val isPasswordValid = edPassword.isValidInput()
-            val isRepeatPasswordValid = edRepeatPassword.isValidInput()
-
-            btnDaftar.isEnabled =
-                isNameValid && isEmailValid && isPasswordValid && isRepeatPasswordValid
-        }
-    }
-    private fun EditText.isValidInput(): Boolean {
-        return length() > 0 && error.isNullOrEmpty()
-    }
-
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun registerFailedToast(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

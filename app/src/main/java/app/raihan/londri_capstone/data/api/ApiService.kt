@@ -1,20 +1,25 @@
 package app.raihan.londri_capstone.data.api
 
+import app.raihan.londri_capstone.data.response.AllLaundryResponse
 import app.raihan.londri_capstone.data.response.LoginResponse
+import app.raihan.londri_capstone.data.response.ProfileResponse
 import app.raihan.londri_capstone.data.response.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
     @FormUrlEncoded
     @POST("auth/user/register")
-    fun register(
-        @Field("nama") nama: String,
+    suspend fun register(
+        @Field("nama") name: String,
         @Field("email") email: String,
+        @Field("nomor_telepon") telephone: String,
         @Field("password") password: String,
-    ): Call<RegisterResponse>
+    ): RegisterResponse
 
     @FormUrlEncoded
     @POST("auth/user/login")
@@ -22,4 +27,14 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
+
+    @GET("user/profile")
+    suspend fun getProfile(
+        @Header("Authorization") token: String,
+    ):ProfileResponse
+
+    @GET("laundry")
+    suspend fun getAllLaundry(
+        @Header("Authorization") token: String,
+    ):AllLaundryResponse
 }

@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +20,13 @@
         android:theme="@style/Base.Theme.Londri_Capstone"
         tools:targetApi="31">
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.search.SearchResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.AddLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_home" />
 
@@ -22,7 +35,7 @@
             android:value="AIzaSyC5CVbWdsAESVVh209qCHPnKdaBKQpbUHM" />
 
         <activity
-            android:name=".ui.formorder.FormOrder"
+            android:name=".ui.order.FormOrderActivity"
             android:exported="false" />
         <activity
             android:name=".ui.splashscreen.OrderSuceed"
@@ -34,13 +47,20 @@
             android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.splashscreen.SplashScreen"
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.profile.ProfileActivity"
+            android:exported="false"/>
+
+        <activity android:name=".ui.DetailLaundryActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

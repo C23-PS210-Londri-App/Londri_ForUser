@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import app.raihan.londri_capstone.R
-import app.raihan.londri_capstone.databinding.CustomTabLayoutBinding
 import app.raihan.londri_capstone.databinding.CustomViewTabBinding
 import com.google.android.material.tabs.TabLayout
 

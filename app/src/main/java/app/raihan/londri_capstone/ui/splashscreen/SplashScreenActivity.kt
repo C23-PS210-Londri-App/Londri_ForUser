@@ -9,20 +9,22 @@ import android.os.Looper
 import androidx.activity.viewModels
 import app.raihan.londri_capstone.databinding.ActivitySplashScreenBinding
 import app.raihan.londri_capstone.models.ViewModelFactory
-import app.raihan.londri_capstone.ui.HomeActivity
+import app.raihan.londri_capstone.ui.MainActivity
 import app.raihan.londri_capstone.ui.login.LoginActivity
-import app.raihan.londri_capstone.ui.main.HomeViewModel
 
-@SuppressLint("CustomSplashScreen")
-class SplashScreen : AppCompatActivity() {
-    private lateinit var binding: ActivitySplashScreenBinding
-    private val viewModel by viewModels<HomeViewModel> {
+@SuppressLint("SplashScreen")
+class SplashScreenActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivitySplashScreenBinding
+    private val viewModel by viewModels<SplashScreenViewModel>{
         ViewModelFactory.getInstance(this)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
 
         Handler(Looper.getMainLooper()).postDelayed({
             viewModel.getSession().observe(this) { user ->
@@ -31,8 +33,8 @@ class SplashScreen : AppCompatActivity() {
                     finish()
                 } else {
                     val token = user.token
-                    val intent = Intent(this, HomeActivity::class.java)
-                    intent.putExtra("extra token", token)
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("extra_token", token)
                     startActivity(intent)
                     finish()
                 }

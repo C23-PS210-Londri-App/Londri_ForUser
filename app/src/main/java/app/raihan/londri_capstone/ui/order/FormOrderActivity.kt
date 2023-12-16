@@ -1,4 +1,4 @@
-package app.raihan.londri_capstone.ui.formorder
+package app.raihan.londri_capstone.ui.order
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import app.raihan.londri_capstone.R
 
-class FormOrder : AppCompatActivity() {
+class FormOrderActivity : AppCompatActivity() {
 
     val jasa = arrayOf("Dryclean", "Cuci Saja", "Komplit", "Setrika Saja")
 

@@ -1,19 +1,18 @@
 package app.raihan.londri_capstone.ui.login
 
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
+import app.raihan.londri_capstone.data.Result
 import app.raihan.londri_capstone.databinding.ActivityLoginBinding
 import app.raihan.londri_capstone.models.UserModel
 import app.raihan.londri_capstone.models.ViewModelFactory
-import app.raihan.londri_capstone.ui.HomeActivity
+import app.raihan.londri_capstone.ui.MainActivity
 import app.raihan.londri_capstone.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -31,25 +30,40 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setupView()
-        LoginAction()
+        loginAction()
+        observe()
     }
 
-    private fun setupView() {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+    private fun observe(){
+        viewModel.loginResponse.observe(this@LoginActivity) { response ->
+            when(response){
+                is Result.Loading -> {
+                    showLoading(true)
+                }
+
+                is Result.Error -> {
+                    showLoading(false)
+                    showDialogFail()
+                }
+
+                is Result.Success -> {
+                    showLoading(true)
+                    viewModel.isLoggedIn()
+                    saveSession(
+                        UserModel(
+                            KEY + response.data.response?.token.toString(),
+                            true
+                        )
+                    )
+                    showDialogSuccess()
+
+                }
+            }
         }
-        supportActionBar?.hide()
     }
 
-    private fun LoginAction() {
+
+    private fun loginAction() {
         binding.apply {
             btnLogin.isEnabled = false
 
@@ -82,51 +96,43 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginAccount() {
-        viewModel.isLoading.observe(this) {
-            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
-        }
-
         binding.apply {
             viewModel.postLogin(
                 emailEditText.text.toString(),
                 passwordEditText.text.toString()
             )
         }
+    }
 
-        viewModel.logResponse.observe(this) { response ->
-            response?.let {
-                if (it.error!!) {
-                    showToast(it.message)
-                }
-            }
-        }
-
-        viewModel.logResponse.observe(this@LoginActivity) { response ->
-            saveSession(
-                UserModel(
-                    KEY + response.response?.token.toString(),
-                    true
-                )
-            )
-        }
-        viewModel.login()
-        viewModel.logResponse.observe(this@LoginActivity) { response ->
-            if (response.error == false) {
-                val token = response.response?.token.toString()
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                intent.putExtra("extra_token", token)
-                startActivity(intent)
+    private fun showDialogSuccess(){
+        AlertDialog.Builder(this).apply {
+            setTitle("Berhasil")
+            setMessage("Anda berhasil login!")
+            setPositiveButton("Okay") { _, _ ->
+                val moveIntent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(moveIntent)
                 finish()
-            } else {
-                showToast(response.message.toString())
             }
+            create()
+            show()
         }
     }
 
-    private fun showToast(message: String?) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    }
+    private fun showDialogFail(){
+        AlertDialog.Builder(this).apply {
+            setTitle("Maaf")
+            setMessage("Login gagal! Masukkan email dan password anda yang benar")
+            create()
+            show()
+        }
+        showLoading(false)
+}
+
     private fun saveSession(session: UserModel) {
         viewModel.saveSession(session)
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

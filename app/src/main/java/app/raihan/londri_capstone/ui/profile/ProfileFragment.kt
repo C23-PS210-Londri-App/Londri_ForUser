@@ -1,42 +1,84 @@
-package app.raihan.londri_capstone.ui.ui.notifications
+package app.raihan.londri_capstone.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import app.raihan.londri_capstone.databinding.FragmentNotificationsBinding
+import app.raihan.londri_capstone.data.Result
+import app.raihan.londri_capstone.data.response.DataProfileResponse
+import app.raihan.londri_capstone.databinding.FragmentProfileBinding
+import app.raihan.londri_capstone.models.ViewModelFactory
+import app.raihan.londri_capstone.ui.login.LoginActivity
 
-class NotificationsFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentProfileBinding
+    private val viewModel by viewModels<ProfileViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+    ): View? {
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.editProfileBtn.setOnClickListener {
+            val moveIntent = Intent(requireContext(), ProfileActivity::class.java)
+            startActivity(moveIntent)
+        }
+
+        binding.logoutBtn.setOnClickListener {
+            viewModel.logout()
+            Toast.makeText(requireContext(), "Berhasil logout!", Toast.LENGTH_LONG).show()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            activity?.finish()
+        }
+
+        observe()
+    }
+    private fun observe () {
+        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+            viewModel.getProfile(user.token)
+        }
+
+        viewModel.profileResponse.observe(viewLifecycleOwner) { response ->
+            when(response) {
+                is Result.Loading -> {
+
+                }
+
+                is Result.Error -> {
+
+                }
+
+                is Result.Success -> {
+
+                    setUpUI(response.data.response)
+                }
+            }
+        }
+    }
+
+    private fun setUpUI(data: DataProfileResponse) {
+        binding.apply {
+            namaUser.text = data.namaLengkap
+            nomorUser.text = data.nomorTelepon
+            emailUser.text = data.email
+            alamatUser.text = data.alamat
+        }
     }
 }

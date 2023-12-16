@@ -6,4 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".ui.DetailLaundryActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:navigationIcon="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="Detail Laundry"
+        app:titleTextColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/view_detail_laundry"
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/placeholder_laundry" />
+
+    <TextView
+        android:id="@+id/laundry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintTop_toBottomOf="@id/view_detail_laundry"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="AndrihLaund"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintTop_toBottomOf="@id/view_detail_laundry"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Status"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/laundry_name" >
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:paddingVertical="4dp"
+            android:src="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/laundry_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:paddingVertical="6dp"
+            android:paddingLeft="10dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/layanan_laundry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Layanan Laundry"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/order_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/blue_500"
+        android:src="@drawable/ic_add_order"
+        app:tint="@color/white" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
