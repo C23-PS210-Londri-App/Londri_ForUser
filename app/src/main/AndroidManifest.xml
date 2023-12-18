@@ -20,6 +20,9 @@
         android:theme="@style/Base.Theme.Londri_Capstone"
         tools:targetApi="31">
         <activity
+            android:name=".ui.detail.DetailOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.search.SearchResultActivity"
             android:exported="false" />
         <activity
@@ -32,7 +35,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC5CVbWdsAESVVh209qCHPnKdaBKQpbUHM" />
+            android:value="AIzaSyDIB0tCVSUZI4VMGlgx52L6tI4r6CDEDPw" />
 
         <activity
             android:name=".ui.order.FormOrderActivity"
@@ -55,12 +58,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.profile.ProfileActivity"
-            android:exported="false"/>
-
-        <activity android:name=".ui.DetailLaundryActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.detail.DetailLaundryActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

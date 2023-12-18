@@ -2,18 +2,14 @@ package app.raihan.londri_capstone.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
 import app.raihan.londri_capstone.data.Result
 import app.raihan.londri_capstone.data.repository.HomeRepository
 import app.raihan.londri_capstone.data.repository.ProfileRepository
 import app.raihan.londri_capstone.data.response.AllLaundryResponse
 import app.raihan.londri_capstone.data.response.ProfileResponse
-import app.raihan.londri_capstone.data.response.ResultDataItem
 import app.raihan.londri_capstone.models.UserModel
-import kotlinx.coroutines.launch
 
 class HomeViewModel(private val profileRepository: ProfileRepository, private val homeRepository: HomeRepository) : ViewModel() {
 

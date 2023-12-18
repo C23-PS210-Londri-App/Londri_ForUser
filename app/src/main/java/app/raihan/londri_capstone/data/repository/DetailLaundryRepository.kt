@@ -4,30 +4,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import app.raihan.londri_capstone.data.Result
 import app.raihan.londri_capstone.data.api.ApiService
-import app.raihan.londri_capstone.data.response.ProfileResponse
+import app.raihan.londri_capstone.data.response.DetailLaundryResponse
 import app.raihan.londri_capstone.models.UserModel
 import app.raihan.londri_capstone.pref.UserPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 
-class ProfileRepository private constructor(
+class DetailLaundryRepository private constructor(
     private val userPreference: UserPreference,
     private val apiService: ApiService
-){
-    suspend fun logout() {
-        userPreference.logout()
-    }
+) {
 
     fun getSession(): Flow<UserModel> {
         return userPreference.getSession()
     }
 
-    fun getProfile(token: String):
-            LiveData<Result<ProfileResponse>> =
+    fun getDetailLaundry(token: String, laundryId : String): LiveData<Result<DetailLaundryResponse>> =
         liveData(Dispatchers.IO) {
             emit(Result.Loading)
             try {
-                val response = apiService.getProfile(token)
+                val response = apiService.getDetailLaundry(token, laundryId)
                 emit(Result.Success(response))
             } catch (e: Exception) {
                 emit(Result.Error(e.message.toString()))
@@ -35,16 +31,17 @@ class ProfileRepository private constructor(
         }
 
     companion object {
-        private const val TAG = "ProfileRepository"
+        private const val TAG = "DetailLaundryRepository"
 
         @Volatile
-        private var instance: ProfileRepository? = null
+        private var instance: DetailLaundryRepository? = null
+
         fun getInstance(
-            profilePreference: UserPreference,
+            detailpreference: UserPreference,
             apiService: ApiService
-        ): ProfileRepository =
+        ): DetailLaundryRepository =
             instance ?: synchronized(this) {
-                instance ?: ProfileRepository(profilePreference, apiService)
+                instance ?: DetailLaundryRepository(detailpreference, apiService)
             }.also { instance = it }
     }
 }

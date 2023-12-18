@@ -45,12 +45,7 @@ class AuthRepository private constructor(
         userPreference.isLoggedIn()
     }
 
-    fun postRegister(
-        name: String,
-        email: String,
-        telephone: String,
-        password: String,
-    ) : LiveData<Result<RegisterResponse>> =
+    fun postRegister(name: String, email: String, telephone: String, password: String ) : LiveData<Result<RegisterResponse>> =
         liveData(Dispatchers.IO) {
             emit(Result.Loading)
             try {

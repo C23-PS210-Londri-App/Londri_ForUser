@@ -41,7 +41,7 @@
             android:id="@+id/profile_img"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/profile_londri" />
+            tools:src="@tools:sample/avatars"/>
 
     </LinearLayout>
 
@@ -89,7 +89,7 @@
                     android:id="@+id/nama_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Raihan"
+                    android:text="Nama User"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -130,7 +130,7 @@
                     android:id="@+id/nomor_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0812345"
+                    android:text="No. Telepon"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -171,7 +171,7 @@
                     android:id="@+id/email_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="raihan@mail.com"
+                    android:text="Email User"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -212,7 +212,7 @@
                     android:id="@+id/alamat_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Jl. Garuda 198b"
+                    android:text="Alamat User"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>

@@ -74,4 +74,11 @@ dependencies {
 
     //circle image
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    //recycler view
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    //convert to machine learning
+    implementation ("org.tensorflow:tensorflow-lite:2.5.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.1.0")
 }

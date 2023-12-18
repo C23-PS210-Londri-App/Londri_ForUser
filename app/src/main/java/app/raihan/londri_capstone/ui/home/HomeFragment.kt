@@ -5,17 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.raihan.londri_capstone.data.Result
 import app.raihan.londri_capstone.data.response.DataProfileResponse
 import app.raihan.londri_capstone.data.response.ResultDataItem
 import app.raihan.londri_capstone.databinding.FragmentHomeBinding
 import app.raihan.londri_capstone.models.ViewModelFactory
-import app.raihan.londri_capstone.ui.DetailLaundryActivity
+import app.raihan.londri_capstone.ui.detail.DetailLaundryActivity
 import app.raihan.londri_capstone.ui.profile.ProfileActivity
 import app.raihan.londri_capstone.ui.search.SearchResultActivity
 
@@ -111,9 +109,18 @@ class HomeFragment : Fragment() {
             object : LaundryAdapter.OnClickListener{
                 override fun onClick(position: Int, model: ResultDataItem) {
                     val moveIntent = Intent(requireContext(), DetailLaundryActivity::class.java)
-                    startActivity(moveIntent)
+                    startActivity(moveIntent, Bundle().apply {
+                        putSerializable(LAUNDRY_ID, model.id.toString())
+                        putSerializable(LAUNDRY_NAME, model.namaLaundry)
+                        moveIntent.putExtras(this)
+                    })
                 }
             }
         )
+    }
+
+    companion object{
+        const val LAUNDRY_ID = "LAUNDRY_ID"
+        const val LAUNDRY_NAME = "LAUNDRY_NAME"
     }
 }

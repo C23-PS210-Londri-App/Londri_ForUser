@@ -38,8 +38,6 @@
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:clickable="true"
-            android:contentDescription="profile"
-            android:src="@drawable/profile_londri"
             tools:src="@tools:sample/avatars"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -54,7 +52,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Muhammad Raihan A"
+            android:text="Nama User"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white" />
@@ -68,7 +66,7 @@
             app:layout_constraintStart_toEndOf="@id/profile_img"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
-            android:text="De Sanctuary Blok E/37"
+            android:text="Alamat User"
             android:textSize="16sp"
             android:textColor="@color/white" />
 
