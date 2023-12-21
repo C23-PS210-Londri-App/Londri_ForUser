@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_10"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/banner_home"
+        android:paddingVertical="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/nama"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_alamat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:maxLines="2"
+            android:text="@string/alamat"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_name"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="-20dp"
+        android:autofillHints="username"
+        android:background="@drawable/search_view_outline"
+        android:backgroundTint="@color/white"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:layoutDirection="ltr"
+        android:maxLines="1"
+        android:queryBackground="@color/black_200"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Search Laundry" />
+
+
+    <TextView
+        android:id="@+id/tvTitleRekom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/tv2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+    <TextView
+        android:id="@+id/tvDescRekom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/information_2"
+        android:textColor="@color/black_200"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleRekom" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recRekomendasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:fillViewport="true"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescRekom"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_recommend_laundry" />
+
+    <TextView
+        android:id="@+id/tvAllLondri"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/semua_londri"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recRekomendasi" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recAllLondri"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="6dp"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAllLondri"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_all_laundry" />
+
+    <TextView
+        android:id="@+id/notLaundri"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nothing_londri"
+        android:textColor="@color/black_300"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@id/tvAllLondri"
+        app:layout_constraintTop_toBottomOf="@id/tvAllLondri"
+        app:layout_constraintEnd_toEndOf="@id/tvAllLondri"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

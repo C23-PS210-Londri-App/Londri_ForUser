@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Londri_Capstone</string>
+    <string name="message_login_page">Masukkan Email dan Password anda!</string>
+    <string name="title_login_page">Selamat Datang!</string>
+    <string name="login">Masuk</string>
+    <string name="google">Google</string>
+    <string name="choice">Atau masuk dengan</string>
+    <string name="asking_user">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="remember">Ingat Saya</string>
+    <string name="forgot">Lupa Kata Sandi?</string>
+    <string name="asking_user2">Sudah punya akun?</string>
+    <string name="masuk">Masuk sekarang!</string>
+    <string name="complete_ur_data">Masukkan data anda dibawah ini!</string>
+    <string name="nama">Nama</string>
+    <string name="phone">Nomor Telepon</string>
+    <string name="confirm">Konfirmasi Kata Sandi</string>
+    <string name="information">Cari tahu lebih banyak dan dapatkan</string>
+    <string name="view_all">Selengkapnya</string>
+    <string name="tv1">Telusuri Londri</string>
+    <string name="promo">promo</string>
+    <string name="information_2">Binatu terbaik kata Londri</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv2">Rekomendasi Londri</string>
+    <string name="signup">Daftar</string>
+    <string name="search">Cari</string>
+    <string name="home">Beranda</string>
+    <string name="order">Pesanan</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="lupa_password">Lupa Password</string>
+    <string name="ingat_saya">Ingat saya</string>
+    <string name="daftar_sekarang">Daftar Sekarang</string>
+    <string name="masukan_data_diri">Masukan Data Diri</string>
+    <string name="ulangi_kata_sandi">Ulangi Kata Sandi</string>
+    <string name="login_sekarang">Login Sekarang</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="alamat">Alamat</string>
+    <string name="search_laundry">Cari Laundry</string>
+    <string name="profile">Profile</string>
+    <string name="nomor_telephone">Nomor Telephone</string>
+    <string name="nothing_address">Belum ada alamat yang ditambahkan</string>
+    <string name="nothing_londri">Laundri tidak ditemukan</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string-array name="JasaYangDipakai">
+        <item>Dryclean</item>
+        <item>Cuci Saja</item>
+        <item>Komplit</item>
+        <item>Setrika Saja</item>
+    </string-array>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_order">Order</string>
+    <string name="title_profile">Profile</string>
+    <string name="konfirmasi_logout">Konfirmasi Logout</string>
+    <string name="desc_konfirmasi_logout">Apakah kamu yakin akan logout?</string>
+    <string name="kembali">Kembali</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="simpan">Simpan</string>
+    <string name="detail_laundry">Detail Laundry</string>
+    <string name="nama_laundry">Nama Laundry</string>
+    <string name="status">status</string>
+    <string name="layanan_laundry">Layanan laundry</string>
+    <string name="cuci">cuci</string>
+    <string name="available">available</string>
+    <string name="make_order">make order</string>
+    <string name="semua_londri">Semua Londri</string>
+    <string name="order_laundry">Order Laundry</string>
+    <string name="berat_pakaian">Berat Pakaian</string>
+    <string name="kg">kg</string>
+    <string name="jasa_laundry">Jasa Laundry</string>
+    <string name="tab_text1">PROSES</string>
+    <string name="tab_text2">SELESAI</string>
+    <string name="idPesanan">OD-000000</string>
+    <string name="beratPesanan">4 Kg</string>
+    <string name="estimasiBiaya">Rp 40.000</string>
+    <string name="slice">|</string>
+    <string name="time">17.00</string>
+    <string name="date">18-11-2023</string>
+    <string name="orderDetail">Detail Pesanan</string>
+    <string name="catatan">Catatan*</string>
+    <string name="orderStatus">Pesanan Selesai</string>
+</resources>

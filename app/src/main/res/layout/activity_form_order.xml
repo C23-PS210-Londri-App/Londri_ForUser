@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ui.detail.DetailLaundryActivity">
+
+    <TextView
+        android:id="@+id/tvNamaPemesan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nama"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTelpPemesan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/nomor_telephone"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaPemesan" />
+
+    <ImageView
+        android:id="@+id/tvIconAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/location_user"
+        app:layout_constraintStart_toStartOf="@+id/tvTelpPemesan"
+        app:layout_constraintTop_toBottomOf="@+id/tvTelpPemesan" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="@string/alamat"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvIconAddress"
+        app:layout_constraintTop_toTopOf="@+id/tvIconAddress" />
+
+    <!-- Informasi Layanan -->
+    <TextView
+        android:id="@+id/tvBeratPakaian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/berat_pakaian"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <EditText
+        android:id="@+id/edBerat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="50dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:padding="8dp"
+        android:background="@drawable/bg_edittext"
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBeratPakaian"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBeratPakaian" />
+
+    <TextView
+        android:id="@+id/tvJasa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/jasa_laundry"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBeratPakaian" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinnerJasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_outline"
+        android:popupBackground="@drawable/popup_spinner"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/tvJasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvJasa"
+        tools:listitem="@layout/activity_form_order" />
+
+    <TextView
+        android:id="@+id/tvCatatan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Catatan"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJasa" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/catatanEditLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCatatan">
+
+        <EditText
+            android:id="@+id/edCatatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Catatan"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/black_200"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:id="@+id/separatorLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/black_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/catatanEditLayout" />
+
+    <TextView
+        android:id="@+id/tvcekNamaJasa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="(namajasa)"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separatorLine" />
+
+    <TextView
+        android:id="@+id/tvcekBerat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Berat Pakaian"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvcekNamaJasa" />
+
+    <TextView
+        android:id="@+id/valueCekBerat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="end"
+        android:text="0"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/tvcekBerat"
+        app:layout_constraintEnd_toStartOf="@id/tvSatuan"
+        app:layout_constraintStart_toEndOf="@id/tvcekBerat"
+        app:layout_constraintTop_toTopOf="@id/tvcekBerat" />
+
+    <TextView
+        android:id="@+id/tvSatuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/kg"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/tvcekBerat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/valueCekBerat"
+        app:layout_constraintTop_toTopOf="@id/tvcekBerat" />
+
+
+    <TextView
+        android:id="@+id/tvcekHarga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Harga Satuan"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvcekBerat" />
+
+    <TextView
+        android:id="@+id/valueCekHarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="(Rp.10000)"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/tvcekHarga"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvcekHarga" />
+
+    <TextView
+        android:id="@+id/tvcekHargaTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Harga Total"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnProcess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRpTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="Rp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvcekHargaTotal"
+        app:layout_constraintEnd_toStartOf="@id/valueCekHargaTotal"
+        app:layout_constraintTop_toTopOf="@id/tvcekHargaTotal" />
+
+    <TextView
+        android:id="@+id/valueCekHargaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvcekHargaTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvcekHargaTotal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnProcess"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Proses"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

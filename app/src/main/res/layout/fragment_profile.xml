@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <View
+        android:id="@+id/img_1"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:background="@drawable/bg_profile"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logout"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/icPerson"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_person"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/nama"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/nama_user"
+        app:layout_constraintStart_toEndOf="@+id/icPerson"
+        app:layout_constraintTop_toTopOf="@+id/icPerson" />
+
+    <TextView
+        android:id="@+id/nama_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/nama"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/icPerson"
+        app:layout_constraintStart_toEndOf="@+id/icPerson" />
+
+
+    <ImageView
+        android:id="@+id/icCall"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_call"
+        app:layout_constraintStart_toStartOf="@+id/icPerson"
+        app:layout_constraintTop_toBottomOf="@+id/icPerson" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/nomor_telephone"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/noTelp"
+        app:layout_constraintStart_toEndOf="@+id/icCall"
+        app:layout_constraintTop_toTopOf="@+id/icCall" />
+
+    <TextView
+        android:id="@+id/noTelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/nomor_telephone"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/icCall"
+        app:layout_constraintStart_toEndOf="@+id/icCall" />
+
+
+    <ImageView
+        android:id="@+id/icEmail"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="@+id/icCall"
+        app:layout_constraintTop_toBottomOf="@+id/icCall" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/email"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
+        app:layout_constraintStart_toEndOf="@+id/icEmail"
+        app:layout_constraintTop_toTopOf="@+id/icEmail" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/email"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/icEmail"
+        app:layout_constraintStart_toEndOf="@+id/icEmail" />
+
+    <ImageView
+        android:id="@+id/icAddress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="@+id/icEmail"
+        app:layout_constraintTop_toBottomOf="@+id/icEmail" />
+
+    <TextView
+        android:id="@+id/labelAlamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/alamat"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@id/icAddress"
+        app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+        app:layout_constraintStart_toEndOf="@+id/icAddress" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/nothing_address"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toBottomOf="@id/labelAlamat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icAddress" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_profile_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/blue_500"
+        android:src="@drawable/ic_edit"
+        app:iconTint="@color/white"
+        app:tint="@color/white"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
