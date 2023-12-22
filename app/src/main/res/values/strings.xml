@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Londri_Capstone</string>
+    <string name="app_name">Londri</string>
     <string name="message_login_page">Masukkan Email dan Password anda!</string>
     <string name="title_login_page">Selamat Datang!</string>
     <string name="login">Masuk</string>
@@ -21,7 +21,7 @@
     <string name="view_all">Selengkapnya</string>
     <string name="tv1">Telusuri Londri</string>
     <string name="promo">promo</string>
-    <string name="information_2">Binatu terbaik kata Londri</string>
+    <string name="information_2">Binatu terdekat kata Londri</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv2">Rekomendasi Londri</string>

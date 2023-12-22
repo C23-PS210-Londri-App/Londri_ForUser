@@ -15,15 +15,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val urlML = "\"https://mlmodel-api-mr4guvmuya-et.a.run.app/\""
+        val baseurls = "\"https://londri.et.r.appspot.com/\""
         val baseUrl = "\"https://londri.up.railway.app/api/v1/\""
         buildConfigField("String", "API_KEY", baseUrl)
     }
 
     buildTypes {
         release {
-            isDebuggable = true
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
